@@ -20,7 +20,7 @@ class TestClass(unittest.TestCase):
 
     def test_class_examPoints(self):
         student = Student(172527, "Егоров Айтал Никитич")
-        examPoints = (student, 40.1, 22.5)
+        examPoints = ExamPoints(student, 40.1, 22.5)
         self.assertEqual(student, examPoints.student)
         self.assertEqual(40.1, examPoints.inPoints)
         self.assertEqual(22.5, examPoints.examPoints)
