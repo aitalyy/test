@@ -45,3 +45,5 @@ class TestClass(unittest.TestCase):
         self.assertEqual("Эверстов Владимир Васильевич", exam.lecturer_fio)
 
 
+if __name__ == '__main__':
+    unittest.main()
