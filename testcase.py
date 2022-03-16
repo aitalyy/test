@@ -3,7 +3,7 @@ from main import Student, Group, Subject, ExamPoints, Exam, Specialization
 
 class TestClass(unittest.TestCase):
     def test_class_student(self):
-        student = Student("Егоров Айтал Никитич", 172527)
+        student = Student(172527, "Егоров Айтал Никитич")
         self.assertEqual("Егоров Айтал Никитич", student.fio)
         self.assertEqual(172527, student.code)
 
@@ -19,9 +19,9 @@ class TestClass(unittest.TestCase):
         self.assertEqual(specialization, group.specialization)
 
     def test_class_examPoints(self):
-        student = Student("Егоров Айтал Никитич")
+        student = Student(172527, "Егоров Айтал Никитич")
         examPoints = (student, 40.1, 22.5)
-        self.assertEqual("Егоров Айтал Никитич", examPoints.student)
+        self.assertEqual(student, examPoints.student)
         self.assertEqual(40.1, examPoints.inPoints)
         self.assertEqual(22.5, examPoints.examPoints)
 
@@ -35,8 +35,8 @@ class TestClass(unittest.TestCase):
         self.assertEqual(specialization, subject.specialization)
 
     def test_class_Exam(self):
-        date = 25.05.2022
-        spec = Specialization("ФИИТ")
+        date = "25.05.2022"
+        specialization = Specialization("ФИИТ")
         subject = Subject("Б1.В.02", "Методы тестирования и верификации программных продуктов", 2, 108, specialization)
         exam = Exam(subject, date, "2021-2022", "Эверстов Владимир Васильевич")
         self.assertEqual(subject, exam.subject)
