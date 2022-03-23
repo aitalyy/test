@@ -1,4 +1,5 @@
 import unittest
+from subject import getSubject
 from main import Student, Group, Subject, ExamPoints, Exam, Specialization
 
 class TestClass(unittest.TestCase):
@@ -44,6 +45,13 @@ class TestClass(unittest.TestCase):
         self.assertEqual("2021-2022", exam.year)
         self.assertEqual("Эверстов Владимир Васильевич", exam.lecturer_fio)
 
+    def test_class_getsubject(self):
+        subject = getSubject("./res/Object.xlsx", "Основы программирования")
+        self.assertEqual("Б1.Б.22", subject.code)
+        self.assertEqual("Основы программирования", subject.name)
+        self.assertEqual("ФИИТ", subject.specialization.name)
+        self.assertEqual(1, subject.semester)
+        self.assertEqual(144, subject.hours)
 
 if __name__ == '__main__':
     unittest.main()
