@@ -117,19 +117,16 @@ class TestGetSubject(unittest.TestCase):
 
 '''
     def test_2(self):
-        g_subject = self.institute.getSubject(None)
         with self.assertRaises(Exception):
-            self.institute.getSubject(g_subject)
+            self.institute.getSubject(None)
 
     def test_3(self):
-        g_subject = self.institute.getSubject("")
         with self.assertRaises(Exception):
-            self.institute.getSubject(g_subject)
+            self.institute.getSubject("")
 
     def test_4(self):
-        g_subject = self.institute.getSubject(123123)
         with self.assertRaises(Exception):
-            self.institute.getSubject(g_subject)
+            self.institute.getSubject(123123)
 '''
 if __name__ == "__main__":
     unittest.main()

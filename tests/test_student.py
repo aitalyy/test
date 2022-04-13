@@ -93,46 +93,40 @@ class TestGetStudent(unittest.TestCase):
         self.institute = Institute()
         self.institute.students = [
             Student(888444, 'Егоров Айтал Никитич'),
-            Student(100001, "Иван Иванович Иванов")
+            Student(100001, "Иванов Иван Иванович")
         ]
         super(TestGetStudent, self).__init__(*args, **kwargs)
 
-
+'''
     def test_1(self): #correct
         g_student = self.institute.getStudent(888444)
         self.assertEqual("Егоров Айтал Никитич", g_student.fio)
         self.assertEqual(888444, g_student.code)
 
-'''
+
     def test_2(self):
-        g_student = self.institute.getStudent(-888444)
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent(-888444)
 
     def test_3(self):
-        g_student = self.institute.getStudent(12345)
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent(12345)
 
     def test_4(self):
-        g_student = self.institute.getStudent(8798721)
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent(8798721)
 
     def test_5(self):
-        g_student = self.institute.getStudent(152.451)
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent(152.451)
 
     def test_6(self):
-        g_student = self.institute.getStudent("asd")
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent("asd")
 
     def test_7(self):
-        g_student = self.institute.getStudent(None)
         with self.assertRaises(Exception):
-            self.institute.getStudent(g_student)
+            self.institute.getStudent(None)
 '''
 
 

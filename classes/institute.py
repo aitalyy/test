@@ -21,8 +21,8 @@ class Institute:
         for spec in self.specs:
             if spec.name == name:
                 return spec
-            else:
-                raise Exception('Специализация не найдена')
+        else:
+            raise Exception('Специализация не найдена')
 
     def add_stud(self, stud: Student):
         if type(stud) != Student:
@@ -44,8 +44,8 @@ class Institute:
         for student in self.students:
             if student.code == studcode:
                 return student
-            else:
-                raise Exception('Студент не найден')
+        else:
+            raise Exception('Студент не найден')
 
     def add_group(self, group: Group):
         if type(group) != Group:
@@ -59,8 +59,8 @@ class Institute:
         for group in self.groups:
             if group.name == name:
                 return group
-            else:
-                raise Exception('Группа не найдена')
+        else:
+            raise Exception('Группа не найдена')
 
     def add_subject(self, subject: Subject):
         if type(subject) != Subject:
@@ -74,8 +74,8 @@ class Institute:
         for subject in self.subjects:
             if subject.name == name_sub:
                 return subject
-            else:
-                raise Exception('Предмет не найден')
+        else:
+            raise Exception('Предмет не найден')
 
     def add_exam(self, exam: Exam):
         if type(exam) != Exam:
@@ -104,8 +104,8 @@ class Institute:
         for exam in self.exams:
             if exam.subject.specialization.name == spec and exam.subject.name == subject_name and exam.examDate == date:
                 return exam
-            else:
-                raise Exception('Экзамен не найден')
+        else:
+            raise Exception('Экзамен не найден')
 
     def add_exam_marks(self, exam_result: ExamPoints):
         if type(exam_result) != ExamPoints:

@@ -211,44 +211,36 @@ class TestGetExam(unittest.TestCase):
 
 '''
     def test_2(self):
-        g_exam = self.institute.get_exam_result("", "Основы программирования", date(2018, 1, 10))
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("", "Основы программирования", date(2018, 1, 10))
 
     def test_3(self):
-        g_exam = self.institute.get_exam_result(None, "Основы программирования", date(2018, 1, 10))
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result(None, "Основы программирования", date(2018, 1, 10))
 
     def test_4(self):
-        g_exam = self.institute.get_exam_result("Фундаментальная информатика и информационные технологии", "Основы программирования", "", date(2018, 1, 10))
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("Фундаментальная информатика и информационные технологии", "Основы программирования", "", date(2018, 1, 10))
 
     def test_5(self):
-        g_exam = self.institute.get_exam_result("Б-ФИИТ-18", None, date(2018, 1, 10))
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("Б-ФИИТ-18", None, date(2018, 1, 10))
 
     def test_6(self):
-        g_exam = self.institute.get_exam_result("Б-ФИИТ-18", "Основы программирования", "")
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("Б-ФИИТ-18", "Основы программирования", "")
 
     def test_7(self):
-        g_exam = self.institute.get_exam_result("Б-ФИИТ-18", "Основы программирования", None)
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("Б-ФИИТ-18", "Основы программирования", None)
 
     def test_8(self):
-        g_exam = self.institute.get_exam_result("Б-ФИИТ-82", 12312, None)
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result("Б-ФИИТ-82", 12312, None)
 
     def test_8(self):
-        g_exam = self.institute.get_exam_result(123123, "Основы программирования", date(2018, 1, 10))
         with self.assertRaises(Exception):
-            self.institute.get_exam_result(g_exam)
+            self.institute.get_exam_result(123123, "Основы программирования", date(2018, 1, 10))
 '''
 if __name__ == "__main__":
     unittest.main()

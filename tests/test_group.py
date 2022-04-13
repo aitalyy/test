@@ -130,44 +130,36 @@ class TestGetGroup(unittest.TestCase):
         self.assertEqual('Информатика и вычислительная техника', g_group.specialization)
 '''
     def test_2(self):
-        g_group = self.institute.getGroup("М-ФИИТ-17")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("М-ФИИТ-17")
 
     def test_3(self):
-        g_group = self.institute.getGroup("Б-ФИИТ-17")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("Б-ФИИТ-17")
 
     def test_4(self):
-        g_group = self.institute.getGroup("ФИИТ-17")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("ФИИТ-17")
 
     def test_5(self):
-        g_group = self.institute.getGroup("М-ФИИТ-99")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("М-ФИИТ-99")
 
     def test_6(self):
-        g_group = self.institute.getGroup(None)
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup(None)
 
     def test_7(self):
-        g_group = self.institute.getGroup("123123")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("123123")
 
     def test_8(self):
-        g_group = self.institute.getGroup("М-фывфывдл-21")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("М-фывфывдл-21")
 
     def test_9(self):
-        g_group = self.institute.getGroup("")
         with self.assertRaises(Exception):
-            self.institute.getGroup(g_group)
+            self.institute.getGroup("")
 '''
 if __name__ == "__main__":
     unittest.main()

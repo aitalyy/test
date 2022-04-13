@@ -67,24 +67,20 @@ class TestGetSpec(unittest.TestCase):
         self.assertEqual('Информатика и вычислительная техника', g_spec.name)
 '''
     def test_2(self):
-        g_spec = self.institute.getSpec(None)
         with self.assertRaises(Exception):
-            self.institute.getSpec(g_spec)
+            self.institute.getSpec(None)
 
     def test_3(self):
-        g_spec = self.institute.getSpec("")
         with self.assertRaises(Exception):
-            self.institute.getSpec(g_spec)
+            self.institute.getSpec("")
 
     def test_4(self):
-        g_spec = self.institute.getSpec(354652)
         with self.assertRaises(Exception):
-            self.institute.getSpec(g_spec)
+            self.institute.getSpec(354652)
 
     def test_5(self):
-        g_spec = self.institute.getSpec('Информатика и вычислительная техника')
         with self.assertRaises(Exception):
-            self.institute.getSpec(g_spec)
+            self.institute.getSpec('Информатика и вычислительная техника')
 '''
 if __name__ == "__main__":
     unittest.main()
