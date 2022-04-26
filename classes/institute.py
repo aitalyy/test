@@ -1,3 +1,5 @@
+import datetime
+
 from main import *
 
 class Institute:
@@ -92,6 +94,8 @@ class Institute:
                 exam.subject.hours == '' or \
                 exam.subject.semester == '':
             raise Exception("Enter subject!")
+        if exam.examDate.year > datetime.datetime.now().year:
+            raise Exception('The year cannot be greater than the current year')
         if exam.year == '':
             raise Exception('Enter date')
         if exam.subject.specialization.name == '':
