@@ -14,6 +14,8 @@ class Institute:
     def add_spec(self, spec: Specialization):
         if type(spec) != Specialization:
             raise Exception('Type error')
+        if len(str(spec.name)) <= 1:
+            raise Exception("Enter name")
         for i in self.specs:
             if i == spec:
                 raise Exception('error')
@@ -27,11 +29,16 @@ class Institute:
             raise Exception('Специализация не найдена')
 
     def add_stud(self, stud: Student):
+        if type(stud.code) != int or \
+                type(stud.fio) != str:
+            raise Exception('Type error')
         if type(stud) != Student:
             raise Exception('Type error')
+        if len(str(stud.code)) != 6:
+            raise Exception('Номер зачетки должен быть 6-тизначным')
         for i in self.students:
-            if i == stud:
-                raise Exception('error')
+            if i == stud.code:
+                raise Exception('Такой студент уже сущ')
         self.students.append(stud)
 
     def getStudent(self, studcode: int):
@@ -50,8 +57,15 @@ class Institute:
             raise Exception('Студент не найден')
 
     def add_group(self, group: Group):
+        if type(group.year) != int or \
+                type(group.name) != str:
+            raise Exception('Group type error')
         if type(group) != Group:
             raise Exception('Type error')
+        if type(group.specialization) != Specialization:
+            raise Exception('Specialization type error')
+        if group.specialization.name == '':
+            raise Exception('Enter Specialization name')
         for i in self.groups:
             if i == group:
                 raise Exception('error')
@@ -65,6 +79,20 @@ class Institute:
             raise Exception('Группа не найдена')
 
     def add_subject(self, subject: Subject):
+        if type(subject.name) != str or \
+                type(subject.code) != str or \
+                type(subject.hours) != int or \
+                type(subject.semester) != int or \
+                type(subject.specialization) != Specialization:
+            raise Exception('Type error')
+        if subject.name == '' or \
+                subject.specialization == '' or \
+                subject.code == '' or \
+                subject.hours == '' or \
+                subject.semester == '':
+            raise Exception("Enter subject!")
+        if subject.specialization.name == '':
+            raise Exception('Enter specialization name')
         if type(subject) != Subject:
             raise Exception('Type error')
         for i in self.subjects:
@@ -107,7 +135,7 @@ class Institute:
                 raise Exception('error')
         self.exams.append(exam)
 
-    def add_exam_result(self, exam_points):
+    def add_exam_marks(self, exam_points):
         t = (exam_points.exam.group.name, exam_points.exam.subject.name, exam_points.examDate)
         if t in self.exam_points.keys():
             self.exam_points[(exam_points.exam.group.name, exam_points.exam.subject.name, exam_points.examDate)].append(
@@ -129,10 +157,10 @@ class Institute:
         else:
             raise Exception('Экзамен не найден')
 
-    def add_exam_marks(self, exam_result: ExamPoints):
-        if type(exam_result) != ExamPoints:
-            raise Exception('Type error')
-        for i in self.exam_results:
-            if i == exam_result:
-                raise Exception('error')
-        self.exam_results.append(exam_result)
+    # def add_exam_marks(self, exam_result: ExamPoints):
+    #     if type(exam_result) != ExamPoints:
+    #         raise Exception('Type error')
+    #     for i in self.exam_results:
+    #         if i == exam_result:
+    #             raise Exception('error')
+    #     self.exam_results.append(exam_result)

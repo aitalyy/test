@@ -4,24 +4,21 @@ from classes.examResult import getExamResult
 import unittest
 
 class TestAddExamResult(unittest.TestCase):
-    def test_one(self): #correct
-        stud = Student(777777, 'Егоров Айтал Никитич')
-        result = ExamPoints(stud, 59.9, 25.4)
-        inst = Institute()
-        inst.add_exam_marks(result)
-        self.assertEqual(len(inst.exam_results), 1)
-
-    def test_two(self): #correct
-        stud = Student(777777, 'Егоров Айтал Никитич')
-        result = ExamPoints(stud, 59.9, 25.4)
-        result1 = ExamPoints(stud, 55.5, 30.0)
-        inst = Institute()
-        inst.add_exam_marks(result)
-        inst.add_exam_marks(result1)
-        self.assertEqual(len(inst.exam_results), 2)
-
-
-
+    # def test_one(self): #correct
+    #     stud = Student(777777, 'Егоров Айтал Никитич')
+    #     result = ExamPoints(stud, 59.9, 25.4)
+    #     inst = Institute()
+    #     inst.add_exam_marks(result)
+    #     self.assertEqual(len(inst.exam_results), 1)
+    #
+    # def test_two(self): #correct
+    #     stud = Student(777777, 'Егоров Айтал Никитич')
+    #     result = ExamPoints(stud, 59.9, 25.4)
+    #     result1 = ExamPoints(stud, 55.5, 30.0)
+    #     inst = Institute()
+    #     inst.add_exam_marks(result)
+    #     inst.add_exam_marks(result1)
+    #     self.assertEqual(len(inst.exam_results), 1)
 
     def test_three(self):
         stud = Student('Егоров Айтал Никитич', 777777)

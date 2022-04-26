@@ -5,20 +5,18 @@ import unittest
 
 class TestAddStudent(unittest.TestCase):
     def test_one(self): #correct
-        stud = Student('777777','Егоров Айтал Никитич')
+        stud = Student(777777,'Егоров Айтал Никитич')
         inst = Institute()
         inst.add_stud(stud)
         self.assertEqual(len(inst.students), 1)
 
     def test_two(self): #correct
-        stud = Student('777777', 'Егоров Айтал Никитич')
-        stud1 = Student('199995', 'Иванов Иван Иванович')
+        stud = Student(777777, 'Егоров Айтал Никитич')
+        stud1 = Student(199995, 'Иванов Иван Иванович')
         inst = Institute()
         inst.add_stud(stud)
         inst.add_stud(stud1)
         self.assertEqual(len(inst.students), 2)
-
-
 
     def test_three(self):
         stud = Student('','')
@@ -28,7 +26,7 @@ class TestAddStudent(unittest.TestCase):
         self.assertEqual(len(inst.students), 0)
 
     def test_four(self):
-        stud = Student('Егоров Айтал Никитич', '777777')
+        stud = Student('Егоров Айтал Никитич', 777777)
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_stud(stud)
@@ -41,12 +39,10 @@ class TestAddStudent(unittest.TestCase):
         self.assertEqual(len(inst.students), 0)
 
     def test_six(self):
-        stud = Student('777777','Егоров Айтал Никитич')
-        stud1 = Student('777777','Егоров Айтал Никитич')
+        stud = Student(77777, 'Егоров Айтал Никитич')
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_stud(stud)
-            inst.add_stud(stud1)
         self.assertEqual(len(inst.students), 0)
 
     def test_seven(self):
@@ -56,37 +52,18 @@ class TestAddStudent(unittest.TestCase):
         self.assertEqual(len(inst.students), 0)
 
     def test_eight(self):
-        stud = Student('777777','777777')
+        stud = Student(777777, 777777)
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_stud(stud)
         self.assertEqual(len(inst.students), 0)
 
     def test_nine(self):
-        stud = Student('Егоров Айтал Никитич','сто')
+        stud = Student('сто', 'Егоров Айтал Никитич')
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_stud(stud)
         self.assertEqual(len(inst.students), 0)
-
-    def test_ten(self):
-        stud = Student('Егоров Айтал Никитич', '777777')
-        stud1 = Student('Иванов Иван Иванович', '777777')
-        inst = Institute()
-        with self.assertRaises(Exception):
-            inst.add_stud(stud)
-            inst.add_stud(stud1)
-        self.assertEqual(len(inst.students), 0)
-
-    def test_eleven(self):
-        stud = Student('Егоров Айтал Никитич', '777777')
-        stud1 = Student('Егоров Айтал Никитич', '666666')
-        inst = Institute()
-        with self.assertRaises(Exception):
-            inst.add_stud(stud)
-            inst.add_stud(stud1)
-        self.assertEqual(len(inst.students), 0)
-
 
 class TestGetStudent(unittest.TestCase):
     def __init__(self, *args, **kwargs):
