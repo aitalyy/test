@@ -149,14 +149,11 @@ class TestAddExam(unittest.TestCase):
 
     def test_twelve(self):
         spec = Specialization('Фундаментальная информатика и информационные технологии')
-        sub = Subject('Б1.В.02', 'Методы тестирования и верификации программных продуктов', 2, 108, spec)
         res = date(2021, 1, 1)
-        exam = Exam(sub, res, '2021-2022', 'Эверстов Владимир Васильевич')
-        exam1 = Exam(sub, res, '2021-2022', 'Эверстов Владимир Васильевич')
+        exam = Exam(123, res, '2021-2022', 'Эверстов Владимир Васильевич')
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_exam(exam)
-            inst.add_exam(exam1)
         self.assertEqual(len(inst.exams), 0)
 
     def test_thirteen(self):
@@ -173,17 +170,6 @@ class TestAddExam(unittest.TestCase):
         with self.assertRaises(Exception):
             inst.add_exam(exam)
         self.assertEqual(len(inst.exams), 0)
-
-    def test_fiveteen(self):
-        spec = Specialization('Фундаментальная информатика и информационные технологии')
-        res = date(2021, 1, 1)
-        exam = Exam(123, res, '2021-2022', 'Эверстов Владимир Васильевич')
-        inst = Institute()
-        with self.assertRaises(Exception):
-            inst.add_exam(exam)
-        self.assertEqual(len(inst.exams), 0)
-
-
 
 
 class TestGetExam(unittest.TestCase):

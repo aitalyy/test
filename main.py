@@ -59,7 +59,7 @@ class Exam:
     subject:Subject
     examDate:date
     year:str
-    lecturer_fio:int
+    lecturer_fio:str
 
     def __init__(self, subject:Subject, examDate:date, year:str, lecturer_fio:int):
         self.subject = subject

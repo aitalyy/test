@@ -95,7 +95,7 @@ class Institute:
         if exam.year == '':
             raise Exception('Enter date')
         if exam.subject.specialization.name == '':
-            raise Exception('Enter date')
+            raise Exception('Enter specialization')
         if type(exam.examDate) != date:
             raise Exception('Exam date type error')
         for i in self.exams:
