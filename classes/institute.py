@@ -81,10 +81,10 @@ class Institute:
         if type(exam) != Exam:
             raise Exception('Type error')
         if type(exam.subject.name) != str or \
-            type(exam.subject.specialization) != Specialization or \
-            type(exam.subject.code) != int or \
-            type(exam.subject.hours) != int or \
-            type(exam.subject.semester) != int:
+                type(exam.subject.specialization) != Specialization or \
+                type(exam.subject.code) != int or \
+                type(exam.subject.hours) != int or \
+                type(exam.subject.semester) != int:
             raise Exception("Error type!")
         for i in self.exams:
             if i == exam:
