@@ -1,6 +1,5 @@
 from main import Exam, Subject, Specialization
 from classes.institute import Institute
-from classes.exam import getExam
 from datetime import date
 import unittest
 
@@ -12,7 +11,7 @@ class TestAddExam(unittest.TestCase):
         exam = Exam(sub, res, '2021-2022', 'Эверстов Владимир Васильевич')
         inst = Institute()
         inst.add_exam(exam)
-        #self.assertEqual(len(inst.exams), 1)
+        self.assertEqual(len(inst.exams), 1)
 
     def test_two(self): #correct
         spec = Specialization('Фундаментальная информатика и информационные технологии')

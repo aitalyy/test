@@ -80,6 +80,7 @@ class Institute:
     def add_exam(self, exam: Exam):
         if type(exam) != Exam:
             raise Exception('Type error')
+
         for i in self.exams:
             if i == exam:
                 raise Exception('error')
