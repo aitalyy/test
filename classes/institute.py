@@ -86,6 +86,18 @@ class Institute:
                 type(exam.subject.hours) != int or \
                 type(exam.subject.semester) != int:
             raise Exception("Error type!")
+        if exam.subject.name == '' or \
+                exam.subject.specialization == '' or \
+                exam.subject.code == '' or \
+                exam.subject.hours == '' or \
+                exam.subject.semester == '':
+            raise Exception("Enter subject!")
+        if exam.year == '':
+            raise Exception('Enter date')
+        if exam.subject.specialization.name == '':
+            raise Exception('Enter date')
+        if type(exam.examDate) != date:
+            raise Exception('Exam date type error')
         for i in self.exams:
             if i == exam:
                 raise Exception('error')
