@@ -194,7 +194,6 @@ class TestGetExam(unittest.TestCase):
         g_exam = self.institute.get_exam_result("Фундаментальная информатика и информационные технологии", "Основы программирования", date(2021, 1, 1))
         #self.assertEqual()
 
-'''
     def test_2(self):
         with self.assertRaises(Exception):
             self.institute.get_exam_result("", "Основы программирования", date(2018, 1, 10))
@@ -226,6 +225,6 @@ class TestGetExam(unittest.TestCase):
     def test_8(self):
         with self.assertRaises(Exception):
             self.institute.get_exam_result(123123, "Основы программирования", date(2018, 1, 10))
-'''
+
 if __name__ == "__main__":
     unittest.main()

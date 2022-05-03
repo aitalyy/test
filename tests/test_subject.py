@@ -92,7 +92,7 @@ class TestGetSubject(unittest.TestCase):
         self.assertEqual(72, g_subject.hours)
         self.assertEqual("Фундаментальная информатика и информационные технологии", g_subject.specialization.name)
 
-'''
+
     def test_2(self):
         with self.assertRaises(Exception):
             self.institute.getSubject(None)
@@ -104,6 +104,6 @@ class TestGetSubject(unittest.TestCase):
     def test_4(self):
         with self.assertRaises(Exception):
             self.institute.getSubject(123123)
-'''
+
 if __name__ == "__main__":
     unittest.main()

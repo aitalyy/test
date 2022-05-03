@@ -22,6 +22,12 @@ class Institute:
         self.specs.append(spec)
 
     def getSpec(self, name: str):
+        if type(name) != str:
+            raise Exception('Type error')
+        if str(name) == '':
+            raise Exception('Enter name')
+        if str(name) == None:
+            raise Exception('Enter name')
         for spec in self.specs:
             if spec.name == name:
                 return spec
@@ -135,14 +141,22 @@ class Institute:
                 raise Exception('error')
         self.exams.append(exam)
 
-    def add_exam_marks(self, exam_points):
-        t = (exam_points.exam.group.name, exam_points.exam.subject.name, exam_points.examDate)
-        if t in self.exam_points.keys():
-            self.exam_points[(exam_points.exam.group.name, exam_points.exam.subject.name, exam_points.examDate)].append(
-                exam_points)
-        else:
-            self.exam_points[(exam_points.exam.group.name, exam_points.exam.subject.name, exam_points.examDate)] = [
-                exam_points]
+    def add_exam_marks(self, exam_points:ExamPoints):
+        if type(exam_points.student.code) != int or \
+                type(exam_points.student.fio) != str or \
+                type(exam_points.student) != Student or \
+                type(exam_points.examPoints) != float or \
+                type(exam_points.inPoints) != float:
+            raise Exception('Type error')
+        if type(exam_points.student.code) == '' or \
+                type(exam_points.student.fio) == '' or \
+                type(exam_points.examPoints) == '' or \
+                type(exam_points.inPoints) == '':
+            raise Exception('Check values for emptiness')
+        for i in self.exam_results:
+            if i == exam_points:
+                raise Exception('error')
+        self.exams.append(exam_points)
 
     def get_exam_result(self, spec, subject_name, date):
         if spec == "" or spec == None:
@@ -157,10 +171,15 @@ class Institute:
         else:
             raise Exception('Экзамен не найден')
 
-    # def add_exam_marks(self, exam_result: ExamPoints):
-    #     if type(exam_result) != ExamPoints:
-    #         raise Exception('Type error')
-    #     for i in self.exam_results:
-    #         if i == exam_result:
-    #             raise Exception('error')
-    #     self.exam_results.append(exam_result)
+    def get_exam_marks(self, exam_result: int):
+        if type(exam_result) != int:
+            raise Exception('Error type')
+        if type(exam_result) == '':
+            raise Exception('Enter studcode')
+        if type(exam_result) == None:
+            raise Exception('Enter studcode')
+        for examRes in self.exam_results:
+            if examRes.student == exam_result:
+                return examRes
+        else:
+            raise Exception('Exam не найден')

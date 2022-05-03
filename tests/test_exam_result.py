@@ -21,7 +21,7 @@ class TestAddExamResult(unittest.TestCase):
     #     self.assertEqual(len(inst.exam_results), 1)
 
     def test_three(self):
-        stud = Student('Егоров Айтал Никитич', 777777)
+        stud = Student(777777, 'Егоров Айтал Никитич')
         result = ExamPoints(stud, 80.0, 10)
         inst = Institute()
         with self.assertRaises(Exception):
@@ -29,7 +29,7 @@ class TestAddExamResult(unittest.TestCase):
         self.assertEqual(len(inst.exam_results), 0)
 
     def test_four(self):
-        stud = Student('Егоров Айтал Никитич', 777777)
+        stud = Student(777777, 'Егоров Айтал Никитич')
         result = ExamPoints(stud, 60.0, 40)
         inst = Institute()
         with self.assertRaises(Exception):
@@ -37,7 +37,7 @@ class TestAddExamResult(unittest.TestCase):
         self.assertEqual(len(inst.exam_results), 0)
 
     def test_five(self):
-        stud = Student('Егоров Айтал Никитич', 777777)
+        stud = Student(777777, 'Егоров Айтал Никитич')
         result = ExamPoints(stud, -60.0, 40)
         inst = Institute()
         with self.assertRaises(Exception):
@@ -66,7 +66,7 @@ class TestAddExamResult(unittest.TestCase):
         self.assertEqual(len(inst.exam_results), 0)
 
     def test_nine(self):
-        stud = Student('Егоров Айтал Никитич', 777777)
+        stud = Student(777777, 'Егоров Айтал Никитич')
         result = ExamPoints(stud, 60.0, -25)
         inst = Institute()
         with self.assertRaises(Exception):
@@ -74,13 +74,33 @@ class TestAddExamResult(unittest.TestCase):
         self.assertEqual(len(inst.exam_results), 0)
 
     def test_ten(self):
-        stud = Student('Егоров Айтал Никитич', 777777)
+        stud = Student(777777, 'Егоров Айтал Никитич')
         result = ExamPoints(stud, 60, 25)
         inst = Institute()
         with self.assertRaises(Exception):
             inst.add_exam_marks(result)
         self.assertEqual(len(inst.exam_results), 0)
 
+class TestGetExamResult(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        self.institute = Institute()
+
+        student1 = Student(777777, 'Егоров Айтал Никитич')
+        student2 = Student(888888, 'Иванов Иван Иванович')
+
+        self.institute.exam_results = [
+            ExamPoints(student1, 54.1, 15),
+            ExamPoints(student2, 60, 28.1),
+        ]
+        super(TestGetExamResult, self).__init__(*args, **kwargs)
+
+    def test_2(self):
+        with self.assertRaises(Exception):
+            self.institute.get_exam_marks("")
+
+    def test_3(self):
+        with self.assertRaises(Exception):
+            self.institute.get_exam_marks(None)
 
 if __name__ == "__main__":
     unittest.main()

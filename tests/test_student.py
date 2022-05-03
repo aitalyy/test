@@ -74,7 +74,6 @@ class TestGetStudent(unittest.TestCase):
         ]
         super(TestGetStudent, self).__init__(*args, **kwargs)
 
-'''
     def test_1(self): #correct
         g_student = self.institute.getStudent(888444)
         self.assertEqual("Егоров Айтал Никитич", g_student.fio)
@@ -104,8 +103,6 @@ class TestGetStudent(unittest.TestCase):
     def test_7(self):
         with self.assertRaises(Exception):
             self.institute.getStudent(None)
-'''
-
 
 if __name__ == "__main__":
     unittest.main()

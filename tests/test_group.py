@@ -89,7 +89,7 @@ class TestGetGroup(unittest.TestCase):
         self.assertEqual('М-ИВТ-20', g_group.name)
         self.assertEqual(2020, g_group.year)
         self.assertEqual('Информатика и вычислительная техника', g_group.specialization)
-'''
+
     def test_2(self):
         with self.assertRaises(Exception):
             self.institute.getGroup("М-ФИИТ-17")
@@ -121,6 +121,6 @@ class TestGetGroup(unittest.TestCase):
     def test_9(self):
         with self.assertRaises(Exception):
             self.institute.getGroup("")
-'''
+
 if __name__ == "__main__":
     unittest.main()
