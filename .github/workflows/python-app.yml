@@ -26,11 +26,12 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install openpyxl
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Clone tests
+      uses: actions/checkout@v3
+      with:
+        repository: 'aitalyy/unitTest'
+        path: 'tests'
+
     - name: Test program
       run: |
-        python -m unittest tests/test_exam.py
-        python -m unittest tests/test_exam_result.py
-        python -m unittest tests/test_group.py
-        python -m unittest tests/test_spec.py
-        python -m unittest tests/test_student.py
-        python -m unittest tests/test_subject.py
+        python -m unittest
