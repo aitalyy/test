@@ -6,6 +6,7 @@ class Student:
     code:int
     fio:str
 
+
     def __init__(self, code:int, fio:str):
         self.code = code
         self.fio = fio
