@@ -40,6 +40,8 @@ class Institute:
             raise Exception('Type error')
         if type(stud) != Student:
             raise Exception('Type error')
+        if stud.fio == None or stud.fio == "":
+            raise Exception('Enter fio')
         if len(str(stud.code)) != 6:
             raise Exception('Номер зачетки должен быть 6-тизначным')
         for i in self.students:
