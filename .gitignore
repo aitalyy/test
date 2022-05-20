@@ -134,3 +134,6 @@ dmypy.json
 /data.zip
 .idea/
 /TechDoc/
+
+tests/
+res/
